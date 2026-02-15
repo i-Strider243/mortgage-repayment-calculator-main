@@ -1,0 +1,358 @@
+// ### Primary
+$Lime: hsl(61, 70%, 52%);
+$Red: hsl(4, 69%, 50%);
+// ### Neutral
+$White: hsl(0, 0%, 100%);
+$Slate-100: #e3f3fd;
+$Slate-300: hsl(203, 41%, 72%);
+$Slate-500: hsl(200, 26%, 54%);
+$Slate-700: hsl(200, 24%, 40%);
+$Slate-900: hsl(202, 55%, 16%);
+$Slate-900-deep: hsl(202, 55%, 12%);
+
+:root {
+  font-family: "Plus Jakarta Sans", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+
+  color: $White;
+  background-color: $Slate-100;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/src/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+  font-optical-sizing: auto;
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 300px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  padding: 0.6rem 1.5rem;
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: inherit;
+  background-color: $Lime;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button img {
+  width: 1rem;
+  aspect-ratio: 1;
+}
+
+button:hover {
+  border-color: #646cff;
+  background-color: rgba($Lime, 0.5);
+}
+
+.linky {
+  all: unset;
+  text-decoration: underline;
+  color: $Slate-700;
+  width: fit-content;
+}
+
+.linky:hover {
+  color: $Slate-900;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+// CARD COMPONENT
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: $White;
+  border-radius: 38px;
+}
+
+.card > * {
+  flex: 1;
+}
+
+// FORM COMPONENT
+.form {
+  padding: 2rem;
+  max-width: 475px;
+  color: $Slate-900;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 12px;
+
+  .form__header {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+  }
+
+  .inc {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error {
+    color: $Red;
+    font-size: 0.6rem;
+    margin-top: 0.5rem; 
+  }
+
+  .calc__btn {
+    margin-top: 1.5rem;
+  }
+}
+
+// INPUT COMPONENT
+.form__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  color: $Slate-700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.label__container {
+  display: flex;
+  outline: 1px solid $Slate-500;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &:has(input[type="radio"]:checked) {
+    outline: 2px solid $Lime;
+    background-color: rgba($Lime,0.1);
+  }
+
+  &:hover,
+  &:has(input[type="number"]:focus),
+  &:has(input[type="number"]:focus-visible),
+  &:has(input[type="radio"]:focus),
+  &:has(input[type="radio"]:focus-visible)   {
+    outline: 2px solid $Slate-900-deep;
+  }
+
+  .label__marker {
+    font-size: 1rem;
+    color: $Slate-700;
+    background-color: $Slate-100;
+    padding: 0.34rem 1rem;
+  }
+
+  .label__input {
+    padding: 0.45rem;
+    color: $Slate-900;
+    font-size: 0.8rem;
+    font-family: inherit;
+    font-weight: 700;
+    border: none;
+  }
+
+  input[type="number"] {
+    width: 100%;
+  
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+.align-right {
+  flex-direction: row-reverse;
+}
+
+  // RADIO BUTTONS
+.radio + .radio {
+  margin-top: 0.5rem;
+}
+
+.radio {
+  padding: 0.5rem 1rem;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  gap: 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    outline-color: $Lime;
+  }
+}
+
+input[type="radio"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  margin: 0;
+  border-radius: 50%;
+  outline: 2px solid $Slate-500;
+  background-color: $White;
+  cursor: pointer;
+  position: relative;
+
+  /* Checked state */
+  &:checked {
+    background-color: $White;
+    outline-color: $Lime;
+  }
+
+  /* Inner dot for checked state */
+  &:checked::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    background: $Lime;
+    border-radius: 100%;
+  }
+}
+
+// RESULT COMPONENT
+.results {
+  padding: 2rem;
+  max-width: 475px;
+  background-color: $Slate-900;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1rem;
+
+  .empty-img {
+    max-width: 234px;
+  }
+
+  p {
+    font-size: 0.7rem;
+    color: $Slate-300;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+
+  .results__summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    border-top: 3px solid $Lime;
+    width: 100%;
+    background-color: $Slate-900-deep;
+
+    p {
+      font-size: 0.5rem;
+    }
+
+    span:first-of-type {
+      font-size: 2rem;
+      color: $Lime;
+      line-height: 1;
+      margin-bottom: 0.7rem;
+    }
+
+    span:first-child {
+      color: $Red;
+    }
+  }
+}
+
+.completed {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  body {
+    place-items: center;
+  }
+  #root {
+    padding: 2rem;
+  }
+  .card {
+    flex-direction: row;
+    border-radius: 1rem;
+    overflow: hidden;
+    max-width: 780px;
+    box-shadow: 17px 17px 42px #c1c1c140, -17px -17px 42px #c1c1c140;
+  }
+  button {
+    width: fit-content;
+  }
+  .form {
+    .form__header {
+      flex-direction: row;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .label__marker {
+      padding: 0.3rem 1rem;
+    }
+    .inc {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+  .radio {
+    padding: 0.4rem 1rem;
+  }
+  .results {
+    max-width: 440px;
+    border-bottom-left-radius: 4rem;
+  }
+}

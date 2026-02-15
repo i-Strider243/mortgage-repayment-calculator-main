@@ -1,0 +1,315 @@
+:root {
+  font-family: "Plus Jakarta Sans", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: hsl(0, 0%, 100%);
+  background-color: #e3f3fd;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/src/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+  font-optical-sizing: auto;
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 300px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  padding: 0.6rem 1.5rem;
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: inherit;
+  background-color: hsl(61, 70%, 52%);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button img {
+  width: 1rem;
+  aspect-ratio: 1;
+}
+
+button:hover {
+  border-color: #646cff;
+  background-color: rgba(215.424, 218.28, 46.92, 0.5);
+}
+
+.linky {
+  all: unset;
+  text-decoration: underline;
+  color: hsl(200, 24%, 40%);
+  width: fit-content;
+}
+
+.linky:hover {
+  color: hsl(202, 55%, 16%);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 38px;
+}
+
+.card > * {
+  flex: 1;
+}
+
+.form {
+  padding: 2rem;
+  max-width: 475px;
+  color: hsl(202, 55%, 16%);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 12px;
+}
+.form .form__header {
+  display: flex;
+  flex-direction: column;
+}
+.form .form__header h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.form .inc {
+  display: flex;
+  flex-direction: column;
+}
+.form .error {
+  color: hsl(4, 69%, 50%);
+  font-size: 0.6rem;
+  margin-top: 0.5rem;
+}
+.form .calc__btn {
+  margin-top: 1.5rem;
+}
+
+.form__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  color: hsl(200, 24%, 40%);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.label__container {
+  display: flex;
+  outline: 1px solid hsl(200, 26%, 54%);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.label__container:has(input[type=radio]:checked) {
+  outline: 2px solid hsl(61, 70%, 52%);
+  background-color: rgba(215.424, 218.28, 46.92, 0.1);
+}
+.label__container:hover, .label__container:has(input[type=number]:focus), .label__container:has(input[type=number]:focus-visible), .label__container:has(input[type=radio]:focus), .label__container:has(input[type=radio]:focus-visible) {
+  outline: 2px solid hsl(202, 55%, 12%);
+}
+.label__container .label__marker {
+  font-size: 1rem;
+  color: hsl(200, 24%, 40%);
+  background-color: #e3f3fd;
+  padding: 0.34rem 1rem;
+}
+.label__container .label__input {
+  padding: 0.45rem;
+  color: hsl(202, 55%, 16%);
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+}
+.label__container input[type=number] {
+  width: 100%;
+}
+.label__container input[type=number]:focus, .label__container input[type=number]:focus-visible {
+  outline: none;
+}
+
+.align-right {
+  flex-direction: row-reverse;
+}
+
+.radio + .radio {
+  margin-top: 0.5rem;
+}
+
+.radio {
+  padding: 0.5rem 1rem;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+.radio:hover {
+  outline-color: hsl(61, 70%, 52%);
+}
+
+input[type=radio] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  margin: 0;
+  border-radius: 50%;
+  outline: 2px solid hsl(200, 26%, 54%);
+  background-color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  position: relative;
+  /* Checked state */
+}
+input[type=radio]:checked {
+  background-color: hsl(0, 0%, 100%);
+  outline-color: hsl(61, 70%, 52%);
+}
+input[type=radio] {
+  /* Inner dot for checked state */
+}
+input[type=radio]:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background: hsl(61, 70%, 52%);
+  border-radius: 100%;
+}
+
+.results {
+  padding: 2rem;
+  max-width: 475px;
+  background-color: hsl(202, 55%, 16%);
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1rem;
+}
+.results .empty-img {
+  max-width: 234px;
+}
+.results p {
+  font-size: 0.7rem;
+  color: hsl(203, 41%, 72%);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+.results .results__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+  border-top: 3px solid hsl(61, 70%, 52%);
+  width: 100%;
+  background-color: hsl(202, 55%, 12%);
+}
+.results .results__summary p {
+  font-size: 0.5rem;
+}
+.results .results__summary span:first-of-type {
+  font-size: 2rem;
+  color: hsl(61, 70%, 52%);
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+.results .results__summary span:first-child {
+  color: hsl(4, 69%, 50%);
+}
+
+.completed {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  body {
+    place-items: center;
+  }
+  #root {
+    padding: 2rem;
+  }
+  .card {
+    flex-direction: row;
+    border-radius: 1rem;
+    overflow: hidden;
+    max-width: 780px;
+    box-shadow: 17px 17px 42px rgba(193, 193, 193, 0.2509803922), -17px -17px 42px rgba(193, 193, 193, 0.2509803922);
+  }
+  button {
+    width: fit-content;
+  }
+  .form .form__header {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .form .label__marker {
+    padding: 0.3rem 1rem;
+  }
+  .form .inc {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .radio {
+    padding: 0.4rem 1rem;
+  }
+  .results {
+    max-width: 440px;
+    border-bottom-left-radius: 4rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
