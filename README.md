@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/mortgage-repayment-calculator-using-react-sass-and-react-hook-form-7auf8t1JU2)
+- [Live Site URL](https://mortgage-repayment-calculator-plum.vercel.app/)
 
 ## My process
 
