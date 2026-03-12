@@ -197,11 +197,11 @@ img {
     font-size: 0.8rem;
     font-family: inherit;
     font-weight: 700;
-    border: none;
   }
 
   input[type="number"] {
     width: 100%;
+    border: none;
   
     &:focus,
     &:focus-visible {
@@ -236,31 +236,18 @@ input[type="radio"] {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  width: 11px;
-  height: 11px;
+  width: 4px;
+  height: 4px;
   margin: 0;
   border-radius: 50%;
+  border: 4px solid rgb(255, 255, 255);
   outline: 2px solid $Slate-500;
-  background-color: $White;
   cursor: pointer;
-  position: relative;
 
   /* Checked state */
   &:checked {
-    background-color: $White;
+    background-color: $Lime;
     outline-color: $Lime;
-  }
-
-  /* Inner dot for checked state */
-  &:checked::after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 8px;
-    height: 8px;
-    background: $Lime;
-    border-radius: 100%;
   }
 }
 
